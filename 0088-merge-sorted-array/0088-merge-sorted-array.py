@@ -1,7 +1,11 @@
-class Solution:
-    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+class Solution(object):
+    def merge(self, nums1, m, nums2, n):
         """
-        Do not return anything, modify nums1 in-place instead.
+        :type nums1: List[int]
+        :type m: int
+        :type nums2: List[int]
+        :type n: int
+        :rtype: None Do not return anything, modify nums1 in-place instead.
         """
         for i in range(0,n):
             nums1[m+i]=nums2[i]
