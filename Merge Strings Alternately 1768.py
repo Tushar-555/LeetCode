@@ -20,7 +20,7 @@ class Solution:
         for i in range(0,length):
             new_word.append(word1[i]+word2[i])
             final=''.join(new_word)
-            count+=i
+            count=i
 
         print("Count is: ",count)
         final=final+word[count+1:]
