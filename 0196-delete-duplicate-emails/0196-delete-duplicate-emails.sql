@@ -1,6 +1,6 @@
 # Write your MySQL query statement below
-delete from person where id || "_" || email in(
-select id || "_" || email
+delete from person where id in(
+select id 
 from(
 select id,email,
 row_number() over (partition by email order by id asc) as rn
