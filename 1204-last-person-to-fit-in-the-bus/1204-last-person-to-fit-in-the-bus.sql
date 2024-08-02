@@ -11,4 +11,3 @@ where total_weight<1001
 select q.person_name from queue q
 join max_turn mt
 on turn=m_turn
-#select * from queue order by turn
