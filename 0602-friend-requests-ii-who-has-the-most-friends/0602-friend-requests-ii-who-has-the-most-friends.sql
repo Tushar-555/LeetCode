@@ -17,7 +17,7 @@ u_id as(
 
 )
 select id,num from(
-select id,(coalesce(r_cnt,0)+coalesce(a_cnt)) as num
+select id,(coalesce(r_cnt,0)+coalesce(a_cnt,0)) as num
 from u_id as uid
 left join req r
 on r.requester_id=uid.id
