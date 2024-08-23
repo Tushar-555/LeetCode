@@ -1,5 +1,6 @@
 # Write your MySQL query statement below
-# First select all manager id to which more than id belongs 
+# First select all manager id to which more than 5 id belongs 
+/*
 with mng_id as(
 select managerId from(
 select managerId, count(id)
@@ -12,3 +13,12 @@ having count(id)>=5) t1
 select name from employee
 inner join mng_id
 on id=mng_id.managerId
+*/
+# or Updated query
+select name
+from employee
+where id in (
+select managerId
+from employee
+group by managerId
+having count(managerId)>=5)
