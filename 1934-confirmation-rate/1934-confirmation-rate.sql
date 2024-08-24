@@ -1,5 +1,4 @@
 # Write your MySQL query statement below
-
 select s.user_id,
 round(sum(
     #IF(c.action='confirmed',1,0)
