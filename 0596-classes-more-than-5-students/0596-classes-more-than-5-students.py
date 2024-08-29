@@ -1,5 +1,4 @@
 import pandas as pd
-
 def find_classes(courses: pd.DataFrame) -> pd.DataFrame:
     courses_count=courses.groupby(['class']).count().reset_index()
     print(courses_count)
