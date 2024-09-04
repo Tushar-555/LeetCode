@@ -1,3 +1,4 @@
+# Using Xor 
 class Solution:
     def singleNumber(self, nums: List[int]) -> List[int]:
         xs = reduce(xor, nums)
