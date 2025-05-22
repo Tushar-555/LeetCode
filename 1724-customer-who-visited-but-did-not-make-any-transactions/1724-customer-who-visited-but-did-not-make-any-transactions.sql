@@ -10,10 +10,9 @@ group by vs.customer_id, ts.transaction_id) non_vs
 where transaction_id is null
 */
 
-select vs.customer_id, count(vs.visit_id) as count_no_trans 
-from visits vs
-left join transactions trs
-on vs.visit_id=trs.visit_id
-where trs.transaction_id is null
-group by vs.customer_id
-order by count(visit_id)
+SELECT v.customer_id, count(v.visit_id) as count_no_trans
+FROM visits v
+LEFT JOIN transactions t
+ON v.visit_id=t.visit_id
+WHERE t.transaction_id is NULL
+GROUP BY v.customer_id
