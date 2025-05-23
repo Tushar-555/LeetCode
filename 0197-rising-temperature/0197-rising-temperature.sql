@@ -1,14 +1,13 @@
 # Write your MySQL query statement below
 
 # In this question it is essential to consider date difference as well while checking difference between temperature
-select id from (
-select id,
-temperature,
-LAG(temperature,1) over(order by recordDate) as prev_temperature,
-DATEDIFF(recordDate,LAG(recordDate,1) over(order by recordDate)) as date_diff
-from weather
+SELECT id FROM(
+    SELECT id, temperature,
+    LAG(temperature,1) OVER(ORDER BY recordDate) as prev_temperature,
+    DATEDIFF(recordDate,LAG(recordDate,1) OVER(ORDER BY recordDate)) as date_diff
+    FROM weather 
 ) wth
-where date_diff=1 and temperature>prev_temperature
+WHERE date_diff=1 and temperature>prev_temperature
 /*
 select id from(
 select id,
