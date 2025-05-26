@@ -3,7 +3,7 @@ WITH cross1 as (
     SELECT 
     std.student_id, std.student_name, sub.subject_name
     FROM students std
-    JOIN subjects sub
+    CROSS JOIN subjects sub
 )
 
 SELECT crs.student_id, crs.student_name, crs.subject_name,
