@@ -15,10 +15,22 @@ inner join mng_id
 on id=mng_id.managerId
 */
 # or Updated query
-select name
-from employee
-where id in (
-select managerId
-from employee
-group by managerId
-having count(managerId)>=5)
+-- select name
+-- from employee
+-- where id in (
+-- select managerId
+-- from employee
+-- group by managerId
+-- having count(managerId)>=5)
+
+WITH direct_reports as (
+    SELECT managerid, count(id)
+    FROM employee
+    GROUP BY managerid
+    HAVING count(id) >= 5 
+)
+
+SELECT name
+FROM direct_reports dr
+INNER JOIN employee emp
+ON dr.managerid = emp.id
