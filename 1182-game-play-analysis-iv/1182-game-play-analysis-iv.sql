@@ -14,3 +14,5 @@ inner join(
 select player_id,min(event_date) first_logged_date from activity group by player_id) b
 on datediff(a.event_date,b.first_logged_date)=1 and a.player_id=b.player_id)/
 (select count(distinct player_id) from activity),2) as fraction
+
+
